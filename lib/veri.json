@@ -1,0 +1,89 @@
+{
+  "chatapp": {
+    "Users": {
+      "ffMV9kTpCOdO5GQeUito5wRdYUI3": {
+        "uid": "ffMV9kTpCOdO5GQeUito5wRdYUI3",
+        "username": "Ferdi Arıkan",
+        "eposta": "ferdiarikan@gmail.com",
+        "friends": {
+          "arkadas1Uid": {
+            "lastMessage": "Merhaba",
+            "name": "Mabel Martiz",
+            "timestamp": 12423453534,
+            "uid": "435325345"
+          },
+          "arkadas2Uid": {
+            "lastMessage": "naber",
+            "name": "Mabel artiz",
+            "timestamp": 214335567,
+            "uid": "12342432"
+          }
+        }
+      },
+      "ffMV9kTpCOdO5GQeUito5wRdYUI4": {
+        "uid": "ffMV9kTpCOdO5GQeUito5wRdYUI4",
+        "username": "Ferdi Marıkan",
+        "eposta": "ferdiarikan@hotmail.com",
+        "friends": {
+          "arkadas1Uid": {
+            "lastMessage": "hi",
+            "name": "Mabel Martiz",
+            "timestamp": 1242345353433,
+            "uid": "ffMV9kTpCOdO5GQeUito5wRdYUI3"
+          },
+          "arkadas2Uid": {
+            "lastMessage": "naber",
+            "name": "Mabel artiz",
+            "timestamp": 214335567,
+            "uid": "ffMV9kTpCOdO5GQeUito5wRdYUI6"
+          }
+        }
+      },
+      "ffMV9kTpCOdO5GQeUito5wRdYUI6": {
+        "uid": "ffMV9kTpCOdO5GQeUito5wRdYUI6",
+        "username": "Ferdi Farıkan",
+        "eposta": "ferdiarikan@cmail.com",
+        "friends": {
+          "arkadas1Uid": {
+            "lastMessage": "hi",
+            "name": "Fabel Martiz",
+            "timestamp": 1242345353433,
+            "uid": "ffMV9kTpCOdO5GQeUito5wRdYUI3"
+          },
+          "arkadas2Uid": {
+            "lastMessage": "naber",
+            "name": "Mabel artiz",
+            "timestamp": 214335567,
+            "uid": "ffMV9kTpCOdO5GQeUito5wRdYUI4"
+          }
+        }
+      }
+    },
+    "messages": {
+      "peersId1": {
+        "outoid1": {
+          "sender": "User1",
+          "message": "Naber lan!",
+          "timestamp": "tarih"
+        },
+        "outoid2": {
+          "sender": "User1",
+          "message": "Naber lan!",
+          "timestamp": "tarih"
+        }
+      },
+      "peersId2": {
+        "outoid1": {
+          "sender": "User3",
+          "message": "Naber lan!",
+          "timestamp": "tarih"
+        },
+        "outoid2": {
+          "sender": "User4",
+          "message": "Naber lan!",
+          "timestamp": "tarih"
+        }
+      }
+    }
+  }
+}
