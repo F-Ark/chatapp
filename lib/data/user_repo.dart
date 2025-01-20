@@ -56,7 +56,7 @@ class UsersRepo {
     );
   }
 
-  /// Databasedeki kullanıcıları tek seferlik listeler
+  /// Databasedeki tüm kullanıcıları tek seferlik listeler
   Future<List<UserModel>> getAllUsers() async {
     final event = await _dbRef.orderByChild('username').once();
     if (event.snapshot.value != null && event.snapshot.value is Map) {
@@ -70,14 +70,35 @@ class UsersRepo {
     }
   }
 
-  /// Databasedeki kullanıcıları tek seferlik listeler
+  /// Databasedeki karşı kullanıcıyı tek serferlik çeker
   Future<UserModel?> getSpesificUser(String otherUserId) async {
     final event = await _dbRef.child(otherUserId).once();
     if (event.snapshot.value != null && event.snapshot.value is Map) {
       return UserModel.fromJson(event.snapshot.value! as Map<Object?, Object?>);
-    }else {
+    } else {
       return null;
     }
+  }
+
+  Future<void> addFriend(FriendModel friend, String currentUserId) async {
+    final json = friend.toJson();
+    await _dbRef
+        .child(currentUserId)
+        .child('friends')
+        .child(friend.uid)
+        .update(json);
+  }
+
+  Future<void> updateOtherUsersLastMessage({
+    required String otherUserId,
+    required String messageText,
+    required String currentUserId,
+  }) async {
+    await _dbRef
+        .child(otherUserId)
+        .child('friends')
+        .child(currentUserId)
+        .update({'lastMessage': messageText});
   }
 }
 
@@ -87,15 +108,6 @@ UsersRepo realTimeUsersRepo(Ref ref) {
 }
 
 @riverpod
-Future<List<UserModel>> fetchAllUsers(Ref ref)  {
-
-  return  ref.read(realTimeUsersRepoProvider).getAllUsers();
-}
-
-@riverpod
-Future<UserModel?> getSpesificUser(Ref ref,String otherUserId) {
-
-return ref.read(realTimeUsersRepoProvider).getSpesificUser(otherUserId);
-
-
+Future<UserModel?> getSpesificUser(Ref ref, String otherUserId) {
+  return ref.read(realTimeUsersRepoProvider).getSpesificUser(otherUserId);
 }

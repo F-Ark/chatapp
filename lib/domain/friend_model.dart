@@ -1,30 +1,36 @@
 import 'package:equatable/equatable.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'friend_model.g.dart';
-
 
 @JsonSerializable()
 class FriendModel extends Equatable {
   const FriendModel({
     required this.uid,
-    required this.timestamp,
     this.name,
     this.lastMessage,
+    this.timestamp,
   });
 
-
   factory FriendModel.fromJson(Map<Object?, Object?> json) {
-    return _$FriendModelFromJson(json.cast());
-
+    return _$FriendModelFromJson(Map<String, dynamic>.from(json));
   }
+
   Map<String, dynamic> toJson() => _$FriendModelToJson(this);
 
   final String? name;
   final String? lastMessage;
   final String uid;
-  final int timestamp;
+  @JsonKey(
+    toJson: _toJsonTimestamp,
+  )
+  final int? timestamp;
 
+  static dynamic _toJsonTimestamp(int? value) {
+    if (value == null) return ServerValue.timestamp;
+    return value;
+  }
   @override
-  List<Object?> get props => [name, lastMessage, uid, timestamp];
+  List<Object?> get props => [uid, timestamp];
 }

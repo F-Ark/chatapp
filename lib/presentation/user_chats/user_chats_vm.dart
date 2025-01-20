@@ -16,12 +16,13 @@ class UserChatsVm extends _$UserChatsVm {
   }
 }
 
+
 @riverpod
 class GetUsersChatFriendsStream extends _$GetUsersChatFriendsStream {
   @override
   Stream<List<FriendModel>> build() {
     return ref.watch(realTimeUsersRepoProvider).getUsersChatFriendsStream(
-          ref.watch(authProvider).currentUsertoUserModelWithOutFriends,
+          ref.read(authProvider).currentUsertoUserModelWithOutFriends,
         );
   }
 }

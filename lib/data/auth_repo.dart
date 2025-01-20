@@ -51,7 +51,6 @@ class FirabaseAuthRepo {
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
-
     await _firebaseAuthIstance.signInWithCredential(kimlik);
   }
 

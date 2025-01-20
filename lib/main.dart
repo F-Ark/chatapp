@@ -1,4 +1,3 @@
-
 import 'package:chatapp/router/router.dart';
 import 'package:chatapp/utils/app_constants.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,7 +23,10 @@ class MyApp extends ConsumerWidget {
       title: AppConstants.appName,
       routerConfig: router,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          onPrimary: Colors.indigo,
+        ),
       ),
     );
   }

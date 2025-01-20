@@ -31,6 +31,7 @@ class MessagesRepo {
 
   Future<void> sendMessage(String separateUid, MessageModel message) async {
     await _dbRef.child(separateUid).push().update(message.toJson());
+
   }
 }
 
@@ -38,4 +39,3 @@ class MessagesRepo {
 MessagesRepo realTimeMessageRepo(Ref ref) {
   return MessagesRepo(FirebaseDatabase.instance.ref('/chatapp/messages/'));
 }
-

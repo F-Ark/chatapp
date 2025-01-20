@@ -62,10 +62,10 @@ GoRouter goRouter(Ref ref) {
             name: AppRouteEnum.message.name, //'message/:id'
             path: AppRouteEnum.message.path,
             builder: (context, state) {
-              final otherUserId = state.pathParameters['id']!;
-              return MessagePage(
-                otherUserId: otherUserId,
-              );
+              final pathOfOtherUserId = state.pathParameters['id']!;
+              return
+                  MessagePage(pathOfOtherUserId: pathOfOtherUserId);
+
             },
           ),
         ],
@@ -75,7 +75,7 @@ GoRouter goRouter(Ref ref) {
 }
 
 enum AppRouteEnum {
-  signIn(path: '/'),
+  signIn(path: '/sign_in'),
   userChats(path: '/user_chats'),
   allUsersList(path: 'all_users_list'),
   message(path: 'message/:id'),
